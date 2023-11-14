@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management System</title>
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-2">
+        <h1>Customer List</h1><br>
+        <a th:href="@{/add}" class="btn btn-success btn-sm mb-3">Add Customer</a>
+        <table border="1" class = "table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <!-- <th>UUID</th> -->
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="customer : ${listCustomers}">
+                    <!-- <td th:text="${customer.uuid}"></td> -->
+                    <td th:text="${customer.first_name}"></td>
+                    <td th:text="${customer.last_name}"></td>
+                    <td th:text="${customer.address}"></td>
+                    <td th:text="${customer.street}"></td>
+                    <td th:text="${customer.city}"></td>
+                    <td th:text="${customer.state}"></td>
+                    <td th:text="${customer.email}"></td>
+                    <td th:text="${customer.phone}"></td>
+                    <td style> 
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <a th:href="@{/update/{uuid}(uuid=${customer.uuid},
+                                                        first_name=${customer.first_name}, 
+                                                        last_name=${customer.last_name}, 
+                                                        address=${customer.address}, 
+                                                        city=${customer.city}, 
+                                                        state=${customer.state}, 
+                                                        street=${customer.street}, 
+                                                        email=${customer.email}, 
+                                                        phone=${customer.phone})}" class="btn btn-primary">Update</a>
+                            <a th:href="@{/delete/{uuid}(uuid=${customer.uuid})}" class="btn btn-outline-danger">Delete</a>    
+                        </div>
+					</td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3">Logout</a>
+</body>
+</html>

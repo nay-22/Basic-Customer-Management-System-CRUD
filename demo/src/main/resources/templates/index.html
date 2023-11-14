@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management System</title>
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+    <div class="container my-2">
+		<h1>Customer Management System</h1>
+		<hr>
+		<h2>Login</h2>
+        <div class="container my-2">
+
+        </div>
+		<form th:action="@{/auth}" th:object="${credential}"
+			method="POST">
+			<input type="email" th:field="*{login_id}"
+				placeholder="Login ID" class="form-control mb-4 col-4">
+				
+				<input type="password" th:field="*{password}"
+				placeholder="Password" class="form-control mb-4 col-4">
+				
+				<button type="submit" class="btn btn-success col-3">Login</button>
+		</form>
+		
+		<hr>
+	</div>
+</body>
+</html>
