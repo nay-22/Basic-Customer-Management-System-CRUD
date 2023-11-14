@@ -1,2 +1,6 @@
 # Basic-Customer-Management-System-CRUD
-Basic CRUD using Java Spring Boot
+## Tech Stack
+* Spring Boot
+* Thyme Leaf
+* HTML/CSS
+* Java
